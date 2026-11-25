@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
+    <color name="purple_500">#6200EE</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="black">#FF000000</color>
+
+    <color name="brand_orange">#FF7043</color>
+    <color name="brand_orange_dark">#F4511E</color>
+    <color name="brand_teal">#26A69A</color>
+    <color name="brand_teal_dark">#00897B</color>
+
+    <color name="page_bg">#F7F7F7</color>
+    <color name="text_primary">#212121</color>
+    <color name="text_secondary">#757575</color>
+    <color name="cover_bg">#FFF3E0</color>
+    <color name="chip_bg">#F2F2F2</color>
+    <color name="divider">#EEEEEE</color>
 </resources>

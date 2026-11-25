@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Market</string>
+    <string name="app_subtitle">Buy and sell with classmates</string>
+
+    <string name="hint_username">Username</string>
+    <string name="hint_password">Password</string>
+    <string name="action_login">Log in</string>
+    <string name="action_register">Register</string>
+    <string name="hint_demo">Demo account: admin / 123456</string>
+    <string name="welcome_back">Welcome back, %1$s</string>
+    <string name="login_empty">Username and password are required</string>
+    <string name="login_failed">Wrong username or password</string>
+    <string name="register_success">Registered and logged in</string>
+    <string name="register_failed">Username already exists</string>
+    <string name="register_too_short">Password needs at least 3 characters</string>
+
+    <string name="tab_all">All</string>
+    <string name="cat_appliance">Appliances</string>
+    <string name="cat_fruit">Fruit</string>
+    <string name="cat_digital">Digital</string>
+    <string name="cat_clothing">Clothing</string>
+    <string name="cat_book">Books</string>
+    <string name="cat_other">Others</string>
+
+    <string name="action_publish">Publish</string>
+    <string name="publish_title">Publish an item</string>
+    <string name="hint_goods_name">Item name</string>
+    <string name="hint_goods_price">Price (CNY)</string>
+    <string name="hint_goods_desc">Description</string>
+    <string name="label_category">Category</string>
+    <string name="label_cover">Cover image</string>
+    <string name="hint_pick_cover">Tap to add a cover (optional)</string>
+    <string name="action_change_cover">Tap to change cover</string>
+    <string name="pick_cover_failed">Failed to read image, please try again</string>
+    <string name="action_submit">Submit</string>
+    <string name="publish_success">Published</string>
+    <string name="publish_invalid">Please fill in all fields</string>
+    <string name="publish_invalid_price">Please enter a valid price</string>
+
+    <string name="detail_title">Item details</string>
+    <string name="label_desc">Description</string>
+    <string name="price_format">¥%1$s</string>
+    <string name="category_label">Category: %1$s</string>
+    <string name="seller_label">Seller: %1$s</string>
+    <string name="detail_meta">%1$s　·　%2$s</string>
+    <string name="status_on_sale">On sale</string>
+    <string name="status_sold">Sold</string>
+    <string name="own_goods_hint">This item is yours</string>
+
+    <string name="buy_confirm_title">Confirm purchase</string>
+    <string name="buy_confirm_message">Buy “%2$s” for ¥%1$s?</string>
+    <string name="action_buy">Buy</string>
+    <string name="action_confirm">Confirm</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="buy_success">Purchase succeeded</string>
+    <string name="buy_failed">This item is sold or unavailable</string>
+    <string name="buy_own_goods">You cannot buy your own item</string>
+
+    <string name="edit_title">Edit item</string>
+    <string name="action_edit">Edit</string>
+    <string name="action_save">Save changes</string>
+    <string name="edit_success">Changes saved</string>
+    <string name="edit_failed">Sold items cannot be edited</string>
+
+    <string name="delete_confirm_title">Delete item</string>
+    <string name="delete_confirm_message">Delete “%1$s”?</string>
+    <string name="action_delete">Delete</string>
+    <string name="delete_success">Deleted</string>
+    <string name="delete_failed">Sold items cannot be deleted</string>
+
+    <string name="menu_my_goods">My items</string>
+    <string name="menu_my_orders">My orders</string>
+    <string name="menu_switch_lang">Switch language</string>
+    <string name="menu_about">About</string>
+    <string name="menu_logout">Log out</string>
+    <string name="menu_profile">Profile</string>
+    <string name="profile_title">Profile</string>
+    <string name="profile_account_label">Account</string>
+    <string name="section_my_info">My info</string>
+    <string name="label_nickname">Nickname</string>
+    <string name="hint_nickname">Enter nickname</string>
+    <string name="label_phone">Phone</string>
+    <string name="hint_phone">Enter phone number</string>
+    <string name="label_address">Shipping address</string>
+    <string name="hint_address">Enter shipping address (dorm / building, etc.)</string>
+    <string name="action_save_profile">Save</string>
+    <string name="profile_saved">Profile saved</string>
+    <string name="section_shortcuts">Shortcuts</string>
+    <string name="shortcut_my_goods">📦  My items</string>
+    <string name="shortcut_my_orders">📋  My orders</string>
+    <string name="shortcut_lang">🌐  Switch language</string>
+    <string name="shortcut_about">ℹ️  About</string>
+    <string name="shortcut_logout">🚪  Log out</string>
+    <string name="logout_confirm_title">Log out</string>
+    <string name="logout_confirm_message">Log out of the current account?</string>
+    <string name="action_logout">Log out</string>
+    <string name="about_title">About</string>
+    <string name="about_message">Market\n\nAndroid final project\n· Login / register (file serialization)\n· Multiple Activities\n· Fragment + ViewPager2 categories\n· RecyclerView list\n· Menus and dialogs\n· Service + MediaPlayer sound\n· Network-loaded cover images\n\nDemo account: admin / 123456</string>
+
+    <string name="my_goods_title">My items</string>
+    <string name="orders_title">My orders</string>
+    <string name="tab_bought">Bought</string>
+    <string name="tab_sold">Sold</string>
+    <string name="empty_goods">No items yet. Tap the button to publish one.</string>
+    <string name="empty_my_goods">You have not published anything yet</string>
+    <string name="empty_orders">No orders yet</string>
+    <string name="order_info">Buyer: %1$s　Seller: %2$s</string>
+    <string name="order_bought">Bought</string>
+    <string name="order_sold">Sold</string>
+    <string name="action_back">Back</string>
+    <string name="cd_add">Publish item</string>
+</resources>
