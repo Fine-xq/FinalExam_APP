@@ -1,5 +1,7 @@
 package cn.edu.sicnu.cs.stu.xiaoquan.myapplication_finalexam
 
+import android.content.Context
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
@@ -9,6 +11,8 @@ import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AlertDialog
+import androidx.core.content.FileProvider
 import androidx.lifecycle.lifecycleScope
 import cn.edu.sicnu.cs.xiaoquan.myapplication_finalexam.R
 import com.google.android.material.appbar.MaterialToolbar
@@ -41,9 +45,28 @@ class PublishActivity : BaseActivity() {
     private var coverFile: File? = null
     /** 用户是否重新选过图。 */
     private var coverChanged = false
+    /** 拍照时的目标文件。 */
+    private var cameraFile: File? = null
 
     private val pickCover = registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
         if (uri != null) copyChosenCover(uri)
+    }
+
+    private val takePhoto = registerForActivityResult(
+        object : ActivityResultContracts.TakePicture() {
+            override fun createIntent(context: Context, input: Uri): Intent =
+                super.createIntent(context, input).addFlags(
+                    Intent.FLAG_GRANT_READ_URI_PERMISSION or
+                        Intent.FLAG_GRANT_WRITE_URI_PERMISSION
+                )
+        }
+    ) { success ->
+        val file = cameraFile
+        if (success && file != null && file.exists() && file.length() > 0) {
+            coverFile = file
+            coverChanged = true
+            showCover(file)
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -63,7 +86,7 @@ class PublishActivity : BaseActivity() {
         spinnerCategory = findViewById(R.id.spinner_category)
         btnSubmit = findViewById(R.id.btn_submit)
 
-        cardCover.setOnClickListener { pickCover.launch("image/*") }
+        cardCover.setOnClickListener { showCoverPicker() }
 
         val labels = categories.map { getString(it.labelRes) }
         spinnerCategory.adapter = ArrayAdapter(
@@ -103,6 +126,39 @@ class PublishActivity : BaseActivity() {
             etPrice.setText(formatPrice(data.price))
             etDesc.setText(data.desc)
             spinnerCategory.setSelection(categories.indexOf(data.category))
+        }
+    }
+
+    /** 点击封面：从相册选择或直接拍照。 */
+    private fun showCoverPicker() {
+        val options = arrayOf(
+            getString(R.string.cover_from_gallery),
+            getString(R.string.cover_from_camera)
+        )
+        AlertDialog.Builder(this)
+            .setTitle(R.string.cover_pick_title)
+            .setItems(options) { _, which ->
+                when (which) {
+                    0 -> pickCover.launch("image/*")
+                    1 -> openCamera()
+                }
+            }
+            .setNegativeButton(R.string.action_cancel, null)
+            .show()
+    }
+
+    private fun openCamera() {
+        val file = File(cacheDir, "camera_cover.jpg")
+        cameraFile = file
+        val uri = FileProvider.getUriForFile(
+            this,
+            "$packageName.fileprovider",
+            file
+        )
+        try {
+            takePhoto.launch(uri)
+        } catch (e: Exception) {
+            toast(R.string.cover_camera_unavailable)
         }
     }
 

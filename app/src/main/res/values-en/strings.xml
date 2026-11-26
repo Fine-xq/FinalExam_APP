@@ -33,6 +33,10 @@
     <string name="hint_pick_cover">Tap to add a cover (optional)</string>
     <string name="action_change_cover">Tap to change cover</string>
     <string name="pick_cover_failed">Failed to read image, please try again</string>
+    <string name="cover_pick_title">Add a photo</string>
+    <string name="cover_from_gallery">Choose from gallery</string>
+    <string name="cover_from_camera">Take a photo</string>
+    <string name="cover_camera_unavailable">No camera app available</string>
     <string name="action_submit">Submit</string>
     <string name="publish_success">Published</string>
     <string name="publish_invalid">Please fill in all fields</string>
@@ -89,6 +93,15 @@
     <string name="section_shortcuts">Shortcuts</string>
     <string name="shortcut_my_goods">📦  My items</string>
     <string name="shortcut_my_orders">📋  My orders</string>
+    <string name="shortcut_change_account">🔑  Account &amp; password</string>
+    <string name="change_account_title">Change account</string>
+    <string name="hint_new_username">Account</string>
+    <string name="hint_old_password">Current password</string>
+    <string name="hint_new_password">New password (blank to keep)</string>
+    <string name="account_updated">Account updated</string>
+    <string name="password_wrong">Current password is incorrect</string>
+    <string name="username_taken">This account name is taken</string>
+    <string name="account_invalid">Enter a valid account name and current password</string>
     <string name="shortcut_lang">🌐  Switch language</string>
     <string name="shortcut_about">ℹ️  About</string>
     <string name="shortcut_logout">🚪  Log out</string>
@@ -110,4 +123,38 @@
     <string name="order_sold">Sold</string>
     <string name="action_back">Back</string>
     <string name="cd_add">Publish item</string>
+
+    <!-- Bottom navigation & search -->
+    <string name="hint_search">Search items</string>
+    <string name="cd_search">Search</string>
+    <string name="nav_home">Home</string>
+    <string name="nav_messages">Messages</string>
+    <string name="nav_cart">Cart</string>
+    <string name="nav_profile">Me</string>
+    <string name="search_empty">No matching items</string>
+
+    <!-- Cart -->
+    <string name="empty_cart">Your cart is empty</string>
+    <string name="cart_total">Total: ¥%1$s</string>
+    <string name="action_checkout">Checkout</string>
+    <string name="checkout_confirm_title">Confirm checkout</string>
+    <string name="checkout_confirm_message">%1$d item(s), total ¥%2$s. Continue?</string>
+    <string name="checkout_success">Checked out %1$d item(s)</string>
+    <string name="checkout_failed">%1$d item(s) sold and cannot be checked out</string>
+    <string name="cart_removed">Removed from cart</string>
+    <string name="action_add_cart">Add to cart</string>
+    <string name="add_cart_success">Added to cart</string>
+    <string name="add_cart_exists">Already in your cart</string>
+    <string name="add_cart_failed">This item cannot be added</string>
+
+    <!-- Messages & chat -->
+    <string name="empty_messages">No messages yet. Contact a seller from an item page.</string>
+    <string name="action_contact_seller">Contact seller</string>
+    <string name="chat_empty">No messages yet. Say hello!</string>
+    <string name="chat_goods_prefix">About: %1$s</string>
+    <string name="hint_message">Type a message…</string>
+    <string name="action_send">Send</string>
+    <string name="msg_you">Me: %1$s</string>
+    <string name="msg_goods_prefix">About: %1$s</string>
+    <string name="msg_send_failed">Failed to send, please retry</string>
 </resources>

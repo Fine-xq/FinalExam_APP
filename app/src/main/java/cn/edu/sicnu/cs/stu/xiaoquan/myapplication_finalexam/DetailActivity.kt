@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import cn.edu.sicnu.cs.xiaoquan.myapplication_finalexam.R
 import com.google.android.material.appbar.MaterialToolbar
@@ -25,6 +26,8 @@ class DetailActivity : BaseActivity() {
     private lateinit var tvStatus: TextView
     private lateinit var tvDesc: TextView
     private lateinit var btnBuy: MaterialButton
+    private lateinit var btnCart: MaterialButton
+    private lateinit var btnChat: MaterialButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +45,8 @@ class DetailActivity : BaseActivity() {
         tvStatus = findViewById(R.id.tv_status)
         tvDesc = findViewById(R.id.tv_desc)
         btnBuy = findViewById(R.id.btn_buy)
+        btnCart = findViewById(R.id.btn_cart)
+        btnChat = findViewById(R.id.btn_chat)
 
         val goodsId = intent.getIntExtra(EXTRA_GOODS_ID, 0)
         lifecycleScope.launch {
@@ -93,6 +98,35 @@ class DetailActivity : BaseActivity() {
             } else {
                 ShopActions.confirmBuy(this, current, lifecycleScope) { reload(current.id) }
             }
+        }
+
+        // 自己的商品不显示「联系卖家 / 加入购物车」
+        btnChat.visibility = if (own) View.GONE else View.VISIBLE
+        btnCart.visibility = if (own) View.GONE else View.VISIBLE
+        btnCart.isEnabled = !data.isSold
+        btnChat.setOnClickListener {
+            startActivity(
+                Intent(this, ChatActivity::class.java)
+                    .putExtra(ChatActivity.EXTRA_PEER_ID, data.sellerId)
+                    .putExtra(ChatActivity.EXTRA_PEER_NAME, data.sellerName)
+                    .putExtra(ChatActivity.EXTRA_GOODS_ID, data.id)
+                    .putExtra(ChatActivity.EXTRA_GOODS_NAME, data.name)
+            )
+        }
+        btnCart.setOnClickListener { addToCart(data) }
+    }
+
+    private fun addToCart(data: Goods) {
+        lifecycleScope.launch {
+            val result = withContext(Dispatchers.IO) {
+                when {
+                    Repository.getCartItems(Session.uid).any { it.goodsId == data.id } ->
+                        R.string.add_cart_exists
+                    Repository.addToCart(data.id, Session.uid) -> R.string.add_cart_success
+                    else -> R.string.add_cart_failed
+                }
+            }
+            Toast.makeText(this@DetailActivity, result, Toast.LENGTH_SHORT).show()
         }
     }
 

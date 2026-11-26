@@ -16,6 +16,11 @@ object Session {
         username = user.username
     }
 
+    /** 修改账号后同步内存中的用户名。 */
+    fun updateUsername(name: String) {
+        username = name
+    }
+
     fun logout() {
         uid = 0
         username = ""
